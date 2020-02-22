@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <button id="go" value="">Go</button>
+            </div>
+            <div class="col s12">
+                <table id="table" class="responsive-table centered highlight striped">
+                    <thead>
+                        <th>LDAP</th>
+                        <th>Review Status</th>
+                        <th>Reference ID</th>
+                        <th>Survey URL</th>
+                        <th>Language</th>
+                        <th>Survey Type</th>
+                        <th>Screenshot/Comments	</th>
+                        <th>Survey Decision	</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Categories</th>
+                        <th>AHT</th>
+                        <th>Auditor	Score</th>
+                        <th>QA Comment</th>
+                        <th>Variance</th>
+                    </thead>
+                    <tbody>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        let div = document.querySelector('#idk'),
+            go = document.querySelector('#go'),
+            table = document.querySelector('#table'),
+            tbody = document.querySelector('#table > tbody'),
+            s = document.createElement('script'),
+            url = `https://script.google.com/a/google.com/macros/s/AKfycbwTT4UWwFiz7l0Ifv-hiYPJiEA8Uv7Pb9YAO_8D/exec?callback=something`;
+
+            go.addEventListener('click', () => {
+            
+            s.type = 'text/javascript',
+            // s.src = `${url}action=read`;
+            s.src = `${url}`;       
+            console.log('ey ' + s.src);
+            document.body.appendChild(s);
+        });
+
+        // callback function called during
+        // script append
+        function something(data){
+            // console.table(data);
+            data.shift();
+            alert(data.length);
+            appendTableData(JSON.stringify(data));
+            // appendTableData(data);
+        }
+
+        function appendTableData(data){
+            data = JSON.parse(data);
+            console.table(data);
+            data.forEach((e) => {
+                let tr = document.createElement('tr');
+
+                e.forEach((r) => {
+                    let td = document.createElement('td');
+                    
+                    td.innerText = r;
+                    tr.appendChild(td);
+                })
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>
