@@ -53,7 +53,8 @@
             table = document.querySelector('#table'),
             tbody = document.querySelector('#table > tbody'),
             s = document.createElement('script'),
-            url = `https://script.google.com/a/google.com/macros/s/AKfycbwTT4UWwFiz7l0Ifv-hiYPJiEA8Uv7Pb9YAO_8D/exec?callback=something`;
+            // url = `https://script.google.com/a/google.com/macros/s/AKfycbwTT4UWwFiz7l0Ifv-hiYPJiEA8Uv7Pb9YAO_8D/exec?callback=something`;
+            url = "https://script.google.com/a/google.com/macros/s/AKfycbxuSXWJgA4yRf7GVeRXWGuFCn0kcALkzHuTMZFRUva7/dev?callback=something&keyword=147435577&columnLetter=C";
 
             go.addEventListener('click', () => {
             
@@ -68,10 +69,13 @@
         // script append
         function something(data){
             // console.table(data);
-            data.shift();
-            alert(data.length);
+            // data.shift();
+            // alert(data.length);
+            // console.table("data: " + JSON.stringify(data));
             appendTableData(JSON.stringify(data));
             // appendTableData(data);
+
+            console.log("data: " + data);
         }
 
         function appendTableData(data){
